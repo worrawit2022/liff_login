@@ -14,9 +14,13 @@
 <body>
   <h1>Page 2</h1>
   <img id="pictureUrl">
+  <p id="userId"></p>
+  <p id="displayName"></p>
+  <p id="statusMessage"></p>
+  <p id="getDecodedIDToken"></p>
   <button id="btnLogIn" onclick="logIn()">Log In</button>
   <button id="btnLogOut" onclick="logOut()">Log Out</button>
-  <script src="https://static.line-scdn.net/liff/edge/versions/2.3.0/sdk.js"></script>
+  <script src="https://static.line-scdn.net/liff/edge/versions/2.9.0"></script>
   <script>
     function logOut() {
       liff.logout()
@@ -26,7 +30,14 @@
       liff.login({ redirectUri: window.location.href })
     }
     async function getUserProfile() {
-      const profile = await liff.getProfile()
+      const profile = await liff.getProfile().then(profile => {
+        document.getElementById("pictureUrl").src = profile.pictureUrl;
+        document.getElementById("userId").innerHTML = '<b>UserId:</b> ' + profile.userId;
+        document.getElementById("displayName").innerHTML = '<b>DisplayName:</b> ' + profile.displayName;
+        document.getElementById("statusMessage").innerHTML = '<b>StatusMessage:</b> ' + profile.statusMessage;
+        document.getElementById("getDecodedIDToken").innerHTML = '<b>Email:</b> ' + liff.getDecodedIDToken().email;
+      }).catch(err => console.error(err));
+    }
       document.getElementById("pictureUrl").style.display = "block"
       document.getElementById("pictureUrl").src = profile.pictureUrl
     }
