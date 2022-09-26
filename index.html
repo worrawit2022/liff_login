@@ -20,7 +20,7 @@
   <p id="getDecodedIDToken"></p>
   <button id="btnLogIn" onclick="logIn()">Log In</button>
   <button id="btnLogOut" onclick="logOut()">Log Out</button>
-  <script src="https://static.line-scdn.net/liff/edge/versions/2.9.0"></script>
+  <script src="https://static.line-scdn.net/liff/edge/versions/2.3.0"></script>
   <script>
     function logOut() {
       liff.logout()
@@ -30,22 +30,22 @@
       liff.login({ redirectUri: window.location.href })
     }
     async function getUserProfile() {
-      const profile = await liff.getProfile().then(profile => {
-        document.getElementById("pictureUrl").src = profile.pictureUrl;
-        document.getElementById("userId").innerHTML = '<b>UserId:</b> ' + profile.userId;
-        document.getElementById("displayName").innerHTML = '<b>DisplayName:</b> ' + profile.displayName;
-        document.getElementById("statusMessage").innerHTML = '<b>StatusMessage:</b> ' + profile.statusMessage;
-        document.getElementById("getDecodedIDToken").innerHTML = '<b>Email:</b> ' + liff.getDecodedIDToken().email;
-      }).catch(err => console.error(err));
-    }
-//       const profile = await liff.getProfile()
-//       document.getElementById("pictureUrl").style.display = "block"
-//       document.getElementById("pictureUrl").src = profile.pictureUrl
-//       document.getElementById("userId").innerHTML = '<b>UserId:</b> ' + profile.userId
-//       document.getElementById("displayName").innerHTML = '<b>DisplayName:</b> ' + profile.displayName
-//       document.getElementById("statusMessage").innerHTML = '<b>StatusMessage:</b> ' + profile.statusMessage
-//       document.getElementById("getDecodedIDToken").innerHTML = '<b>Email:</b> ' + liff.getDecodedIDToken().email
+//       const profile = await liff.getProfile().then(profile => {
+//         document.getElementById("pictureUrl").src = profile.pictureUrl;
+//         document.getElementById("userId").innerHTML = '<b>UserId:</b> ' + profile.userId;
+//         document.getElementById("displayName").innerHTML = '<b>DisplayName:</b> ' + profile.displayName;
+//         document.getElementById("statusMessage").innerHTML = '<b>StatusMessage:</b> ' + profile.statusMessage;
+//         document.getElementById("getDecodedIDToken").innerHTML = '<b>Email:</b> ' + liff.getDecodedIDToken().email;
+//       }).catch(err => console.error(err));
 //     }
+      const profile = await liff.getProfile()
+      document.getElementById("pictureUrl").style.display = "block"
+      document.getElementById("pictureUrl").src = profile.pictureUrl
+      document.getElementById("userId").innerHTML = '<b>UserId:</b> ' + profile.userId
+      document.getElementById("displayName").innerHTML = '<b>DisplayName:</b> ' + profile.displayName
+      document.getElementById("statusMessage").innerHTML = '<b>StatusMessage:</b> ' + profile.statusMessage
+      document.getElementById("getDecodedIDToken").innerHTML = '<b>Email:</b> ' + liff.getDecodedIDToken().email
+    }
     async function main() {
       await liff.init({ liffId: "1654169856-VG7aQoBb" })
       if (liff.isInClient()) {
