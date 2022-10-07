@@ -19,7 +19,7 @@
       async function main(){
         await liff.init({liffId: "1654169856-1qX2dnrZ" })
         const {userAgent} = navigator
-        if (!liff.isInclient() && userAgent.includes('Line')){
+        if (!liff.isInClient() && userAgent.includes('Line')){
             document.querySelector('#openBtn').style.display = 'block'
         } else {
             document.querySelector('#shareBtn').style.display = 'block'
