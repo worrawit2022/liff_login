@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>check is Friend Line</title>
+  </head>
+  <body>
+    <script src="https://static.line-scdn.net/liff/edge/versions/2.9.0/sdk.js"></script>
+    <script>
+      async function main(){
+        await liff.init({liffId: "1653575653-e9vXldMN" })
+        const isFriend = await getFriend()
+        if (!isFriend) {
+            alert("Please add our chatbot first")
+            window.location = "https://line.me/R/ti/p/@087xnuei"
+      } else {
+        getUserProfile()
+      }
+        main()
+        async function getFriend() {
+        const friend = await liff.getFriendship()
+        return friend.friendFlag
+      }
+    </script>
+  </body>
+</html>
