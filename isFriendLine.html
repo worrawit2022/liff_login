@@ -5,12 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>check is Friend Line</title>
+    <style>
+        body {margin: 0; position : absolute; top:  50%; left: 50%; -ms-transform: translate(-50%, -50%); transform: translate(-50%, -50%);}
+        button { display: none; padding: 16px; font-size: 16px;}
+    </style>
   </head>
   <body>
+    <button id="openBtn" onclick="redirect()">Open LIFF app</button>
+    <button id="shareBtn">Share Target Picker</button>
+
     <script src="https://static.line-scdn.net/liff/edge/versions/2.9.0/sdk.js"></script>
     <script>
       async function main(){
         await liff.init({liffId: "1653575653-e9vXldMN" })
+        const {userAgent} = navigator
+        if (!liff.isInclient() && userAgent.includes('Line')){
+            document.querySelector('#openBtn').style.display = 'block'
+        } else {
+            document.querySelector('#shareBtn').style.display = 'block'
+        }
         const isFriend = await getFriend()
         if (!isFriend) {
             alert("Please add our chatbot first")
@@ -19,9 +32,13 @@
         getUserProfile()
       }
         main()
-        async function getFriend() {
-        const friend = await liff.getFriendship()
-        return friend.friendFlag
+     async function getFriend() {
+            const friend = await liff.getFriendship()
+            return friend.friendFlag
+      }
+      async function redirect(){
+        const liffUrl = await liff.permanentLink.createUrlBy(windows.location.href)
+        window.location = liffUrl
       }
     </script>
   </body>
