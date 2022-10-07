@@ -37,7 +37,7 @@
             return friend.friendFlag
       }
       async function redirect(){
-        const liffUrl = await liff.permanentLink.createUrlBy(windows.location.href)
+        const liffUrl = await liff.permanentLink.createUrlBy(window.location.href)
         window.location = liffUrl
       }
     </script>
