@@ -240,12 +240,12 @@ async function sendMessages() {
         const [majorVer, minorVer, patchVer] = (liff.getLineVersion() || "").split('.');
 
         if (minorVer === undefined) {
-          alert('ShareTargetPicker was canceled in external browser')
+          alert('Send Message was canceled in external browser')
           return
         }
 
         if (parseInt(majorVer) >= 10 && parseInt(minorVer) >= 10 && parseInt(patchVer) > 0) {
-          alert('ShareTargetPicker was canceled in LINE app')
+          alert('Send Message was canceled in LINE app')
         }
       }
     }    
@@ -257,6 +257,7 @@ async function sendMessages() {
       await liff.init({ liffId: "1654169856-GXqjDLOR" })
       if (liff.isLoggedIn()) {
         document.getElementById("btnShare").style.display = "block"
+        document.getElementById("btnSend").style.display = "block"
         if (!liff.isInClient()) {
           document.getElementById("btnLogOut").style.display = "block"
         }
