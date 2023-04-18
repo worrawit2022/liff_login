@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns/website#">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <script src="https://static.line-scdn.net/liff/edge/2.1/sdk.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+
+  <title>welcome</title>
+
+</head>
+
+<body>
+
+  <div class="center">
+
+    <h1>
+      Develop By Gukkghu 2021 &#169;
+    </h1>
+  </div>
+
+  <script>
+
+    window.onload = function (e) {
+      // function share(e){
+      liff.init({liffId: "1654169856-GXqjDLOR"}, function () {
+        liff.ready.then(() => {
+          if (liff.isLoggedIn()) {
+              let msg = [
+                            {
+                           		type: 'text',
+		                        text: 'ssssssssssssssssssss'      
+		                    }
+                        ]
+              setTimeout(function () {
+                SendFlex(msg)
+                alert("สำเร็จ")
+              }, 1000);
+
+
+          } else {
+            liff.login();
+          }
+        })
+      });
+    }
+
+
+    function SendFlex(flex) {
+      liff.sendMessages(flex).then(function () {
+        liff.closeWindow();
+      }).catch(function (error) {
+        alert("Error sending message: " + error.message)
+      });
+
+    }
+
+
+
+  </script>
+</body>
+
+</html>
