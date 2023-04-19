@@ -30,10 +30,133 @@
         liff.ready.then(() => {
           if (liff.isLoggedIn()) {
               let msg = [
-                            {
-                           		type: 'text',
-		                        text: 'ssssssssssssssssssss'      
-		                    }
+{
+              "type": "flex",
+              "altText": "ตรวจสอบสินค้า",
+              "contents":{
+  "type": "bubble",
+  "hero": {
+    "type": "video",
+    "url": "https://vos.line-scdn.net/hack/vdo.mp4",
+    "previewUrl": "https://vos.line-scdn.net/hack/preview2.jpg",
+    "altContent": {
+      "type": "image",
+      "size": "full",
+      "aspectRatio": "20:13",
+      "aspectMode": "fit",
+      "url": "https://vos.line-scdn.net/hack/preview2.jpg"
+    },
+    "action": {
+      "type": "uri",
+      "label": "More information",
+      "uri": "http://linecorp.com/"
+    },
+    "aspectRatio": "20:13"
+  },
+  "body": {
+    "type": "box",
+    "layout": "vertical",
+    "contents": [
+      {
+        "type": "box",
+        "layout": "horizontal",
+        "contents": [
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "text",
+                "text": "LINE HACK 2023",
+                "wrap": true,
+                "size": "3xl",
+                "color": "#FFFFFF",
+                "weight": "bold",
+                "offsetStart": "20px"
+              }
+            ]
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": []
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [
+              {
+                "type": "box",
+                "layout": "vertical",
+                "contents": [
+                  {
+                    "type": "image",
+                    "url": "https://vos.line-scdn.net/hack/general.png",
+                    "size": "xl",
+                    "aspectMode": "fit",
+                    "offsetStart": "20%"
+                  }
+                ],
+                "alignItems": "flex-end"
+              }
+            ],
+            "alignItems": "flex-end"
+          }
+        ]
+      },
+      {
+        "type": "box",
+        "layout": "vertical",
+        "contents": [
+          {
+            "type": "text",
+            "text": "witty !!!",
+            "color": "#FFFFFF",
+            "size": "xl",
+            "offsetStart": "20px",
+            "weight": "bold"
+          },
+          {
+            "type": "box",
+            "layout": "vertical",
+            "contents": [],
+            "background": {
+              "type": "linearGradient",
+              "angle": "280deg",
+              "startColor": "#2e2c8f",
+              "endColor": "#f8018e"
+            },
+            "borderWidth": "none",
+            "cornerRadius": "100px",
+            "height": "200px",
+            "width": "200px",
+            "position": "absolute",
+            "offsetStart": "65%"
+          }
+        ],
+        "height": "200px",
+        "justifyContent": "center"
+      }
+    ],
+    "background": {
+      "type": "linearGradient",
+      "angle": "0deg",
+      "endColor": "#000000",
+      "centerColor": "#2e2c8f",
+      "startColor": "#f8018e"
+    },
+    "justifyContent": "space-between",
+    "height": "400px",
+    "paddingAll": "0px"
+  },
+  "size": "giga",
+  "styles": {
+    "hero": {
+      "backgroundColor": "#000000"
+    }
+  }
+}
+}
                         ]
               setTimeout(function () {
                 SendFlex(msg)
